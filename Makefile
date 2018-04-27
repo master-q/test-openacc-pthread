@@ -1,7 +1,7 @@
 all: a.out libtestacc.so
 
 a.out: main.c
-	gcc main.c -ldl
+	gcc main.c -ldl -pthread
 
 libtestacc.so: acc.c
 	/opt/pgi/linux86-64/17.10/bin/pgcc -shared -fpic -fast -acc -ta=tesla,cc60,nordc -o libtestacc.so acc.c
